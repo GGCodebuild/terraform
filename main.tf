@@ -52,10 +52,6 @@ resource "aws_instance" "k8s-master" {
     }
 }
 
-output "ec2_global_ips" {
-  value = ["${aws_instance.k8s-master.*.public_ip}"]
-}
-
 resource "aws_instance" "k8s-slave" {
     ami                    = "ami-06878d265978313ca"
     instance_type          = "t3.small"
@@ -76,6 +72,9 @@ resource "aws_instance" "k8s-slave" {
     }
 }
 
-output "ec2_global_ips" {
+output "ec2_k8s-master_ip" {
+  value = ["${aws_instance.k8s-master.*.public_ip}"]
+}
+output "ec2_k8s-slave_ip" {
   value = ["${aws_instance.k8s-slave.*.public_ip}"]
 }
