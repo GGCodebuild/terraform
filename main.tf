@@ -35,7 +35,6 @@ resource "aws_security_group" "k8s" {
 resource "aws_instance" "k8s-master" {
     ami                    = "ami-06878d265978313ca"
     instance_type          = "t3.small"
-    state = "stopped"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
@@ -52,10 +51,15 @@ resource "aws_instance" "k8s-master" {
         Name = "K8s Master"
     }
 }
+
+resource "aws_ec2_instance_state" "k8s-master" {
+  instance_id = aws_instance.k8s-master.id
+  state       = "stopped"
+}
+
 resource "aws_instance" "k8s-slave" {
     ami                    = "ami-06878d265978313ca"
     instance_type          = "t3.small"
-    state = "stopped"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
@@ -71,4 +75,8 @@ resource "aws_instance" "k8s-slave" {
     tags = {
         Name = "K8s Slave"
     }
+}
+resource "aws_ec2_instance_state" "k8s-slave" {
+  instance_id = aws_instance.k8s-slave.id
+  state       = "stopped"
 }
