@@ -52,9 +52,8 @@ resource "aws_instance" "k8s-master" {
     }
 }
 
-resource "aws_ec2_instance_state" "k8s-master" {
-  instance_id = aws_instance.k8s-master.id
-  state       = "stopped"
+output "ec2_global_ips" {
+  value = ["${aws_instance.k8s-master.*.public_ip}"]
 }
 
 resource "aws_instance" "k8s-slave" {
@@ -76,7 +75,7 @@ resource "aws_instance" "k8s-slave" {
         Name = "K8s Slave"
     }
 }
-resource "aws_ec2_instance_state" "k8s-slave" {
-  instance_id = aws_instance.k8s-slave.id
-  state       = "stopped"
+
+output "ec2_global_ips" {
+  value = ["${aws_instance.k8s-slave.*.public_ip}"]
 }
