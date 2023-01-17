@@ -35,6 +35,7 @@ resource "aws_security_group" "k8s" {
 resource "aws_instance" "k8s-master" {
     ami                    = "ami-06878d265978313ca"
     instance_type          = "t3.small"
+    state = "stopped"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
@@ -54,6 +55,7 @@ resource "aws_instance" "k8s-master" {
 resource "aws_instance" "k8s-slave" {
     ami                    = "ami-06878d265978313ca"
     instance_type          = "t3.small"
+    state = "stopped"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
