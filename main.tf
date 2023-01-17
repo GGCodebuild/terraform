@@ -33,18 +33,17 @@ resource "aws_security_group" "k8s" {
 
 }
 resource "aws_instance" "k8s-master" {
-    ami                    = ami-06878d265978313ca
-    instance_type          = t3.small
-    key_name               = k8s
-    subnet_id              = subnet-43c5f124
+    ami                    = "ami-06878d265978313ca"
+    instance_type          = "t3.small"
+    key_name               = "k8s"
+    subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
-    iam_instance_profile   = var.iam_instance_profile
     associate_public_ip_address = true
     ebs_optimized          = false
 
     root_block_device {
         volume_size           = 8
-        volume_type           = gp2
+        volume_type           = "gp2"
         delete_on_termination = true
         encrypted             = false
     }
@@ -53,18 +52,17 @@ resource "aws_instance" "k8s-master" {
     }
 }
 resource "aws_instance" "k8s-slave" {
-    ami                    = ami-06878d265978313ca
-    instance_type          = t3.small
-    key_name               = k8s
-    subnet_id              = subnet-43c5f124
+    ami                    = "ami-06878d265978313ca"
+    instance_type          = "t3.small"
+    key_name               = "k8s"
+    subnet_id              = "subnet-43c5f124"
     vpc_security_group_ids = [aws_security_group.k8s.id]
-    iam_instance_profile   = var.iam_instance_profile
     associate_public_ip_address = true
     ebs_optimized          = false
 
     root_block_device {
         volume_size           = 8
-        volume_type           = gp2
+        volume_type           = "gp2"
         delete_on_termination = true
         encrypted             = false
     }
