@@ -41,7 +41,7 @@ resource "aws_security_group" "k8s" {
 
 }
 resource "aws_instance" "k8s-master" {
-    ami                    = "ami-06878d265978313ca"
+    ami                    = "ami-0778521d914d23bc1"
     instance_type          = "t3.small"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
@@ -61,7 +61,7 @@ resource "aws_instance" "k8s-master" {
 }
 
 resource "aws_instance" "k8s-slave" {
-    ami                    = "ami-06878d265978313ca"
+    ami                    = "ami-0778521d914d23bc1"
     instance_type          = "t3.small"
     key_name               = "k8s"
     subnet_id              = "subnet-43c5f124"
