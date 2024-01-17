@@ -23,66 +23,49 @@ provider "aws" {
   secret_key = "XXXXXXXXXXXXXXXXXX"
 }
 
-resource "aws_security_group" "k8s" {
-    name = "k8s"
-    ingress {
-        from_port = 22
-        to_port = 22
-        protocol = "TCP"
-        cidr_blocks = [ "0.0.0.0/0" ]
-    }
-    egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+module "eks" {
+ 
+# public_subnets  = ["172.30.0.0/20", "172.30.16.0/20"]
+
+  source  = "terraform-aws-modules/eks/aws"
+  version = "19.15.3"
+
+  cluster_name    = "EKS-STG-CLUSTER"
+  cluster_version = "1.27"
+
+  vpc_id                         = "vpc-XXXXXXXXXX"
+  subnet_ids                     = ["subnet-XXXXXXXXXXXX", "subnet-XXXXXXXXX"]
+  cluster_endpoint_public_access = true
+
+  eks_managed_node_group_defaults = {
+    ami_type = "AL2_x86_64"
+
   }
 
-}
-resource "aws_instance" "k8s-master" {
-    ami                    = "ami-06878d265978313ca"
-    instance_type          = "t3.small"
-    key_name               = "k8s"
-    subnet_id              = "subnet-43c5f124"
-    vpc_security_group_ids = [aws_security_group.k8s.id]
-    associate_public_ip_address = true
-    ebs_optimized          = false
+  eks_managed_node_groups = {
+    one = {
+      name = "eks-stg-nodes"
 
-    root_block_device {
-        volume_size           = 8
-        volume_type           = "gp2"
-        delete_on_termination = true
-        encrypted             = false
-    }
-    tags = {
-        Name = "K8s Master"
-    }
-}
+      instance_types = ["m5.large"]
 
-resource "aws_instance" "k8s-slave" {
-    ami                    = "ami-06878d265978313ca"
-    instance_type          = "t3.small"
-    key_name               = "k8s"
-    subnet_id              = "subnet-43c5f124"
-    vpc_security_group_ids = [aws_security_group.k8s.id]
-    associate_public_ip_address = true
-    ebs_optimized          = false
-
-    root_block_device {
-        volume_size           = 8
-        volume_type           = "gp2"
-        delete_on_termination = true
-        encrypted             = false
+      min_size     = 1
+      max_size     = 4
+      desired_size = 2
+      create_security_group = false
     }
-    tags = {
-        Name = "K8s Slave"
-    }
-}
 
-output "ec2_k8s-master_ip" {
-  value = ["${aws_instance.k8s-master.*.public_ip}"]
-}
-output "ec2_k8s-slave_ip" {
-  value = ["${aws_instance.k8s-slave.*.public_ip}"]
+    two = {
+      name = "eks-stg-nodes-high-cpu"
+
+      instance_types = ["m5.2xlarge"]
+
+      min_size     = 1
+      max_size     = 9
+      desired_size = 3
+      create_security_group = false
+              labels = {
+            group = "high-cpu"
+        }
+    }
+  }
 }
