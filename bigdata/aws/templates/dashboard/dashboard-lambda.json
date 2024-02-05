@@ -1,0 +1,54 @@
+{
+  "metrics": [
+    [ "AWS/Lambda", "ConcurrentExecutions", "FunctionName", "invoke_dag_airflow_by_endpoint", "Resource", "invoke_dag_airflow_by_endpoint" ],
+    [ "AWS/Lambda", "Invocations", "FunctionName", "invoke_dag_airflow_by_endpoint", "Resource", "invoke_dag_airflow_by_endpoint" ],
+    [ "AWS/Lambda", "Errors", "FunctionName", "invoke_dag_airflow_by_endpoint", "Resource", "invoke_dag_airflow_by_endpoint" ],
+    [ "AWS/Lambda", "Throttles", "FunctionName", "invoke_dag_airflow_by_endpoint", "Resource", "invoke_dag_airflow_by_endpoint" ],
+    [ "AWS/Lambda", "Duration", "FunctionName", "invoke_dag_airflow_by_endpoint", "Resource", "invoke_dag_airflow_by_endpoint" ]
+  ],
+  "view": "timeSeries",
+  "stacked": true,
+  "region": "sa-east-1",
+  "stat": "Average",
+  "period": 300
+}
+
+
+{
+  "view": "timeSeries",
+  "stacked": false,
+  "metrics": [
+    [ "AWS/ApiGateway", "Count", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ],
+    [ "AWS/ApiGateway", "IntegrationLatency", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ],
+    [ "AWS/ApiGateway", "DataProcessed", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ],
+    [ "AWS/ApiGateway", "Latency", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ],
+    [ "AWS/ApiGateway", "4xx", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ],
+    [ "AWS/ApiGateway", "5xx", "Stage", "invoke-dag-lending-stage", "ApiId", "5c75o8951f" ]
+  ],
+  "region": "sa-east-1"
+}
+
+
+{
+  "view": "bar",
+  "metrics": [
+    [ "AWS/DataSync", "BytesWritten", "AgentId", "agent-0d62e55553b2a49f0", { "region": "sa-east-1" } ],
+    [ "AWS/DataSync", "FilesTransferred", "AgentId", "agent-0d62e55553b2a49f0", { "region": "sa-east-1" } ],
+    [ "AWS/DataSync", "BytesTransferred", "AgentId", "agent-0d62e55553b2a49f0", { "region": "sa-east-1" } ],
+    [ "AWS/DataSync", "BytesCompressed", "AgentId", "agent-0d62e55553b2a49f0", { "region": "sa-east-1" } ]
+  ],
+  "region": "sa-east-1",
+  "period": 300
+}
+
+
+{
+  "view": "timeSeries",
+  "stacked": false,
+  "metrics": [
+    [ "AWS/S3", "BucketSizeBytes", "StorageType", "StandardStorage", "BucketName", "lakehouse-artifactory-spc-dev", { "period": 86400, "region": "sa-east-1" } ],
+    [ "AWS/S3", "NumberOfObjects", "StorageType", "AllStorageTypes", "BucketName", "lakehouse-artifactory-spc-dev", { "period": 86400, "region": "sa-east-1" } ]
+  ],
+  "region": "sa-east-1",
+  "period": 300
+}

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Bacen - SCR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gabarito&family=Poppins:wght@300;500&display=swap');
+
+:root {
+    --color-azul: #1f3f8d;
+    --color-verde: #1f873e;
+    --color-amarelo: #f7970f;
+  }
+
+
+body {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+#main > .row {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#main > .row {
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.title-box {
+    background-color: var(--color-azul);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 15px;
+    box-shadow:  0 5px 20px rgba(0,0,0,.1);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.generic-box {
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    box-shadow:  0 5px 20px rgba(0,0,0,.1);
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.generic-box > header{
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #ccc;
+    position: relative;
+}
+
+.generic-box > header > h1 {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.generic-box > section {
+    padding: 15px;
+}
+
+.itens-list-box{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.bar {
+    width: 100%;
+    height: 30px;
+    background-color: #f1f1f1;
+    border: solid 2px #ccc;
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-in{
+    height: 26px;
+    background-color: #ccc;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.bar-label{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.item-box {
+    background-color: var(--color-verde);
+    padding: 20px;
+    min-width: 180px;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+}
+
+.item-box > header{
+    font-size: 0.8rem;
+    color: #d8d8d8;
+}
+
+.item-box > span {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.list-rss-box span{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #575757;
+}
+
+.list-rss-box tr {
+    cursor: pointer;
+}
+
+.item-rss-box {
+    width: 100%;
+    background-color: var(--color-verde);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.item-rss-box:last-child {
+    margin-bottom: 0;
+} 
+
+.item-rss-box > header{
+    font-size: 0.8rem;
+    color: #d8d8d8;
+}
+
+.item-rss-box > span {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #FFF;
+}
+
+.item-rss-ivd {
+    background-color: var(--color-amarelo);
+}
+
+.item-rss-info {
+    background-color: var(--color-azul);
+}
+
+.item-rss-ivd > header {
+    color: #fff;
+}
+
+.etp-rss-active > td {
+    background-color: #5b5b5b;
+    color: #fff;
+	transition: all ease .2s;
+}
+
+.itens-label-box{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.toggle-btn{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 15px;
+    border: 0;
+}
+
+.hide-section{
+    overflow: hidden;
+    height: 0px;
+    padding: 0px !important;
+}
+
+.hide{
+    display: none;
+}
+
+.timeline-box{
+    text-align: left;
+}
+
+.sts-title button {
+    border: 0;
+    font-weight: 600;
+    color: var(--color-verde);
+    width: 20px;
+    background-color: transparent;
+}
+    </style>
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo_spcbrasil_16x16.png">
+</head>
+<body>
+    <div class="container-fluid" id="main">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="title-box">
+                    RELATÓRIO SCR BACEN
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="status-box">
+                    <div class="bar">
+                        <div class="bar-in" id="render-id-1"></div>
+                        <div class="bar-label" id="render-id-2">
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="generic-box" id="box-1">
+                    <header>
+                        <h1>Informações remessa</h1>
+                        <button class="toggle-btn" data-target="1" data-status="open">-</button>
+                    </header>
+                    <section class="itens-list-box">
+                        <div class="item-box">
+                            <header>Número Remessa</header>
+                            <span id="render-id-3">...</span>
+                        </div>
+                        <div class="item-box">
+                            <header>Data Remessa</header>
+                            <span id="render-id-4">...</span>
+                        </div>
+                        <div class="item-box">
+                            <header>Data Base</header>
+                            <span id="render-id-15">...</span>
+                        </div>
+                        <div class="item-box">
+                            <header>Arquivos</header>
+                            <span id="render-id-5">...</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="generic-box" id="box-2">
+                    <header>
+                        <h1>Arquivos Registrados</h1>
+                        <button class="toggle-btn" data-target="2" data-status="close">+</button>
+                    </header>
+                    <section class="hide-section">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nome Arquivo</th>
+                                    <th>Tipo Arquivo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="render-id-6">
+                                <tr>
+                                    <td colspan="2">...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="generic-box" id="box-3">
+                    <header>
+                        <h1>Etapa Remessa (Raw)</h1>
+                        <button class="toggle-btn" data-target="3" data-status="close">+</button>
+                    </header>
+                    <section class="hide-section">
+                        <div class="row">
+                            <div class="col-md-7 list-rss-box">
+                                <table class="table table-bordered table-hover" id="etp_rss_action">
+                                    <tbody id="render-id-7">
+                                        <tr><td>Os dados não foram carregados!</td></tr>
+                                    </tbody>
+                                </table>
+                                <span>Clique em um item para ver as informações</span>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="itens-rss-box">
+                                    <div class="item-rss-box">
+                                        <header>Clientes</header>
+                                        <span id="etp-rss-data-cli">...</span>
+                                    </div>
+                                    <div class="item-rss-box">
+                                        <header>Operações</header>
+                                        <span id="etp-rss-data-opr">...</span>
+                                    </div>
+                                    <div class="item-rss-box">
+                                        <header>Garantias</header>
+                                        <span id="etp-rss-data-gar">...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="generic-box" id="box-4">
+                    <header>
+                        <h1>Etapa Base (Trusted / Garbage)</h1>
+                        <button class="toggle-btn" data-target="4" data-status="close">+</button>
+                    </header>
+                    <section class="hide-section">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="itens-label-box">Dados Válidos</span>
+                                <div class="itens-rss-box">
+                                    <div class="item-rss-box">
+                                        <header>Clientes</header>
+                                        <span id="render-id-8">...</span>
+                                    </div>
+                                    <div class="item-rss-box">
+                                        <header>Operações</header>
+                                        <span id="render-id-9">...</span>
+                                    </div>
+                                    <div class="item-rss-box">
+                                        <header>Garantias</header>
+                                        <span id="render-id-10">...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="itens-label-box">Dados Inválidos</span>
+                                <div class="itens-rss-box">
+                                    <div class="item-rss-box item-rss-ivd">
+                                        <header>Clientes</header>
+                                        <span id="render-id-11">...</span>
+                                    </div>
+                                    <div class="item-rss-box item-rss-ivd">
+                                        <header>Operações</header>
+                                        <span id="render-id-12">...</span>
+                                    </div>
+                                    <div class="item-rss-box item-rss-ivd">
+                                        <header>Garantias</header>
+                                        <span id="render-id-13">...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-12">
+                                <div class="item-rss-box item-rss-info">
+                                    <header>Ocorrências de Erros</header>
+                                    <span id="render-id-16">...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="generic-box" id="box-5">
+                    <header>
+                        <h1>Status das etapas</h1>
+                        <button class="toggle-btn" data-target="5" data-status="open">-</button>
+                    </header>
+                    <section class="timeline-box" id="render-id-14">
+                        ...
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        var report_data = {{json_origem}}
+    </script>
+    <script>
+		function render_etp_rss(filename) {
+    report_data['etp-rss']['files'].forEach(file => {
+        if (filename == file.filename) {
+            $("#etp-rss-data-opr").text(file.counts['opr'].toLocaleString('pt-BR'))
+            $("#etp-rss-data-cli").text(file.counts['cli'].toLocaleString('pt-BR'))
+            $("#etp-rss-data-gar").text(file.counts['gar'].toLocaleString('pt-BR'))
+
+            return
+        }
+    })
+
+}
+
+$(".toggle-btn").click(function(){
+    let status = $(this).attr("data-status")
+    let target = $(this).attr("data-target")
+
+    if (status == "open") {
+        $(this).attr("data-status", "close")
+        $("#box-"+target+" section").addClass("hide-section")
+        $(this).text("+")
+    } else {
+        $(this).attr("data-status", "open")
+        $(this).text("-")
+        $("#box-"+target+" section").removeClass("hide-section")
+    }
+    
+})
+
+function render_dom() {
+    /** Status Geral */
+    $("#render-id-1").css("width", report_data['sta-geral']['percent']+"%")
+    $("#render-id-2").text(report_data['sta-geral']['title'])
+
+
+    /** Informações Remessa */
+    $("#render-id-3").text(report_data['info-rss']['num-rss'])
+    $("#render-id-4").text(report_data['info-rss']['dat-rss'])
+    $("#render-id-5").text(report_data['info-rss']['qtd'])
+    $("#render-id-15").text(report_data['info-rss']['dat-bas'])
+
+    /** Arquivos Registrados */
+    var html = "";
+    report_data['arq-reg']['files'].forEach(file => {
+        html += "<tr><td>"+file['filename']+"</td><td>"+file['type']+"</td></tr>"
+    });
+
+    $("#render-id-6").html(html)
+
+    /** Etapa remessa */
+    html = ""
+    report_data['etp-rss']['files'].forEach(file => {
+        html += "<tr data-filename='"+file['filename']+"'><td>"+file['filename']+"</td></tr>"
+    });
+
+    $("#render-id-7").html(html)
+    $("#render-id-7 tr").click(function(){
+   
+        $("#render-id-7 tr").removeClass("etp-rss-active")
+        $(this).addClass("etp-rss-active")
+        render_etp_rss($(this).attr("data-filename"))
+    })
+
+
+    /** Etapa Base */
+    $("#render-id-8").text(report_data['etp-bas']['trusted']['cli'].toLocaleString('pt-BR'))
+    $("#render-id-9").text(report_data['etp-bas']['trusted']['opr'].toLocaleString('pt-BR'))
+    $("#render-id-10").text(report_data['etp-bas']['trusted']['gar'].toLocaleString('pt-BR'))
+    $("#render-id-11").text(report_data['etp-bas']['garbage']['cli'].toLocaleString('pt-BR'))
+    $("#render-id-12").text(report_data['etp-bas']['garbage']['opr'].toLocaleString('pt-BR'))
+    $("#render-id-13").text(report_data['etp-bas']['garbage']['gar'].toLocaleString('pt-BR'))
+    $("#render-id-16").text(report_data['etp-bas']['erros'].toLocaleString('pt-BR'))
+    
+    
+    /** Status Etapa */
+    html = readTree(report_data['sta-etp'], 0)
+    $("#render-id-14").html(html)
+
+    $(".sts-item").each(function(){
+        let level = $(this).attr("data-level")
+        $(this).css("margin-left", 20*level)
+    })
+    
+    $(".sts-title button").click(function(){
+        let status = $(this).text();
+        let target = $(this).attr("data-id")
+    
+        if (status == "-") {
+            $(".sts-item[data-id='"+target+"'] .sts-child").addClass("hide")
+            $(this).text("+")
+        } else if (status == "+") {
+            $(this).text("-")
+            $(".sts-item[data-id='"+target+"'] > .sts-child").removeClass("hide")
+        }
+    })
+}
+
+
+var sta_id = 1
+function readTree(list, lvl) {
+    var html = ""
+    list.forEach(item => {
+        var children = ""
+        if (item.child.length != 0) {
+            children = readTree(item.child, lvl + 1)
+        }
+
+        var status = item.status == "OK" ? "✅" : "🟨"
+        var valueBtn = children == "" ? "" : "+"
+
+        html += "<div class='sts-item' data-id='"+sta_id+"' data-level='"+lvl+"'><div class='sts-title'><button data-id='"+sta_id+"'>"+valueBtn+"</button> "+status+" "+item.title+"</div><div class='sts-child hide'>"+children+"</div></div>"
+
+        sta_id++
+    });
+    
+    return html
+}
+
+render_dom()
+	</script>
+</body>
+</html>

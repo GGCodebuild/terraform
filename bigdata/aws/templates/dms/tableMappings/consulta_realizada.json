@@ -1,0 +1,17 @@
+{
+  "rules":[
+    {
+      "rule-type":"selection",
+      "rule-id":"044835171",
+      "rule-name":"044835171",
+      "object-locator":{
+        "schema-name":"SPCJAVA",
+        "table-name":"CONSULTA_REALIZADA"
+      },
+      "rule-action":"include",
+      "filters":[
+
+      ]
+    }
+  ]
+}

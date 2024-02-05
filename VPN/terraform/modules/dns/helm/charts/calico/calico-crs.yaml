@@ -1,0 +1,27 @@
+###
+# File: calico-crs.yaml
+# File Created: Wednesday, 17th August 2022 3:45:02 pm
+# -----
+# Last Modified: Wednesday August 17th 2022 3:45:40 pm
+# Modified By: Jordan Craven <jordan.craven@windriver.com>
+# -----
+# Copyright (c) 2022 Wind River Systems, Inc.
+# 
+# The right to copy, distribute, modify, or otherwise make use of this software may be licensed
+# only pursuant to the terms of an applicable Wind River license agreement.
+# -----
+###
+---
+# Source: aws-calico/templates/crs/custom-resources.yaml
+# This section includes base Calico installation configuration.
+# For more information, see: https://docs.projectcalico.org/v3.17/reference/installation/api#operator.tigera.io/v1.Installation
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+  annotations:
+    "helm.sh/hook": post-install
+spec:
+  # Configures Calico policy configured to work with AmazonVPC CNI networking.
+  cni:
+    type: AmazonVPC

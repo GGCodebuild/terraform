@@ -1,0 +1,43 @@
+###
+# File: values.yaml
+# File Created: Wednesday, 17th August 2022 4:08:51 pm
+# -----
+# Last Modified: Wednesday August 17th 2022 9:33:09 pm
+# Modified By: Jordan Craven <jordan.craven@windriver.com>
+# -----
+# Copyright (c) 2022 Wind River Systems, Inc.
+# 
+# The right to copy, distribute, modify, or otherwise make use of this software may be licensed
+# only pursuant to the terms of an applicable Wind River license agreement.
+# -----
+###
+imagePullSecrets: {}
+
+installation:
+  enabled: true
+  kubernetesProvider: ""
+
+apiServer:
+  enabled: true
+
+certs:
+  node:
+    key:
+    cert:
+    commonName:
+  typha:
+    key:
+    cert:
+    commonName:
+    caBundle:
+
+resources: {}
+
+# Configuration for the tigera operator
+tigeraOperator:
+  image: tigera/operator
+  version: v1.27.12
+  registry: quay.io
+calicoctl:
+  image: docker.io/calico/ctl
+  tag: v3.23.3

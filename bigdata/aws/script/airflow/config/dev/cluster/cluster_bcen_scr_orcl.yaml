@@ -1,0 +1,23 @@
+emr:
+  config:
+    name: "BCEN_SCR_ORCL"
+    version: "emr-5.23.1"
+    primaryNode:
+      instanceType: "m5.xlarge"
+      instanceCount: 1
+      disk_type: "gp2"
+      disk_size: 64
+    slaveNodes:
+      instanceType: "m5.xlarge"
+      instanceCount: 3
+      disk_type: "gp2"
+      disk_size: 64
+    tags:
+      "SPC:BILLING:VN": "CI"
+      "SPC:BILLING:CENTROCUSTO": "D00306001"
+      "SPC:BILLING:PROJETO": "PARCERIA_BCSCR"
+      "SPC:BILLING:PRODUTO": "INSUMO_CADPOS"
+      "SPC:AMBIENTE:TIPO": "DEV"
+      "SPC:AMBIENTE:SERVICO": "EMR"
+      "SPC:AMBIENTE:DATACRIACAO": "2023-06-19"
+      "SPC:AMBIENTE:AREA": "ENG_DD"

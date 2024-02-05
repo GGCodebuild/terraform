@@ -1,0 +1,33 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowListActions",
+            "Effect": "Allow",
+            "Action": ["iam:ListUsers", "iam:ListVirtualMFADevices"],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowIndividualUserToListOnlyTheirOwnMFA",
+            "Effect": "Allow",
+            "Action": ["iam:ListMFADevices"],
+            "Resource": [
+                "arn:${partition}:iam::*:mfa/*",
+                "arn:${partition}:iam::*:user/$${aws:username}"
+            ]
+        },
+        {
+            "Sid": "AllowIndividualUserToManageTheirOwnMFA",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateVirtualMFADevice",
+                "iam:EnableMFADevice",
+                "iam:ResyncMFADevice"
+            ],
+            "Resource": [
+                "arn:${partition}:iam::*:mfa/$${aws:username}",
+                "arn:${partition}:iam::*:user/$${aws:username}"
+            ]
+        }
+    ]
+}

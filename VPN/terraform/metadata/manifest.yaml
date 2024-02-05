@@ -1,0 +1,88 @@
+###
+# File: manifest.yaml
+# File Created: Tuesday, 7th February 2023 3:24:11 pm
+# -----
+# Last Modified: Thursday February 23rd 2023 2:03:27 pm
+# Modified By: Jordan Craven <jordan.craven@windriver.com>
+# -----
+# Copyright (c) 2023 Wind River Systems, Inc.
+# 
+# The right to copy, distribute, modify, or otherwise make use of this software may be licensed
+# only pursuant to the terms of an applicable Wind River license agreement.
+# -----
+###
+images:
+  wr-studio-product/external/docker.io/velero/velero-plugin-for-aws: {
+    tags: ["v1.1.0"]
+  }
+  wr-studio-product/external/docker.io/velero/velero: {
+    tags: ["v1.9.0"]
+  }
+  wr-studio-product/external/docker.io/velero/velero-restic-restore-helper: {
+    tags: ["v1.5.3"]
+  }
+  wr-studio-product/quay.io/tigera/operator: {
+    tags: ["v1.27.12"]
+  }
+  wr-studio-product/calico/node: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/typha: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/ctl: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/cni: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/apiserver: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/kube-controllers: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/dikastes: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/pod2daemon-flexvol: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/calico/csi: {
+    tags: ["v3.23.3"]
+  }
+  wr-studio-product/ingress-nginx/controller: {
+    tags: ["v1.2.1"]
+  }
+  wr-studio-product/external/registry.k8s.io/ingress-nginx/kube-webhook-certgen: {
+    tags: ["v1.1.1"]
+  }
+  wr-studio-product/external/quay.io/jetstack/cert-manager-controller: {
+    tags: ["v1.8.2"]
+  }
+  wr-studio-product/external/quay.io/jetstack/cert-manager-webhook: {
+    tags: ["v1.8.2"]
+  }
+  wr-studio-product/external/quay.io/jetstack/cert-manager-cainjector: {
+    tags: ["v1.8.2"]
+  }
+  wr-studio-product/aws-efs-csi-driver: {
+    tags: ["v1.5.1"]
+  }
+  wr-studio-product/eks-distro/kubernetes-csi/livenessprobe: {
+    tags: ["v2.8.0-eks-1-25-latest"]
+  }
+  wr-studio-product/eks-distro/kubernetes-csi/node-driver-registrar: {
+    tags: ["v2.6.2-eks-1-25-latest"]
+  }
+  wr-studio-product/eks-distro/kubernetes-csi/external-provisioner: {
+    tags: ["v3.3.0-eks-1-25-latest"]
+  }
+  wr-studio-product/external/docker.io/istio/pilot: {
+    tags: ["1.13.4"]
+  }
+  wr-studio-product/external/docker.io/istio/proxyv2: {
+    tags: ["1.13.4"]
+  }
+
+

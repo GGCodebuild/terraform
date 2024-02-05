@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:SetDesiredCapacity",
+                "autoscaling:SetInstanceProtection"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "autoscaling:ResourceTag/eks:cluster-name": "${cluster_name}"
+                }
+            }
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingInstances",
+                "ec2:DescribeLaunchTemplateVersions",
+                "ec2:DescribeInstanceTypes",
+                "ec2:DescribeLaunchTemplates",
+                "autoscaling:DescribeScalingActivities",
+                "autoscaling:DescribeAutoScalingGroups",
+                "ec2:DescribeLaunchTemplateVersions",
+                "autoscaling:DescribeTags",
+                "eks:ListClusters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "NodeGroupPermissions",
+            "Effect": "Allow",
+            "Action": [
+                "eks:DescribeNodegroup",
+                "eks:ListNodegroups"
+            ],
+            "Resource": [
+                "arn:${partition}:eks:${region}:${cloud_account_id}:cluster/${cluster_name}",
+                "arn:${partition}:eks:${region}:${cloud_account_id}:nodegroup/${cluster_name}/*/*"
+            ]
+        }
+    ]
+}

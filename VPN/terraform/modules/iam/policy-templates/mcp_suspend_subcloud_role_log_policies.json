@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:${partition}:logs:${region}:${cloud_account_id}:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
+            "Resource": [
+                "arn:${partition}:logs:${region}:${cloud_account_id}:log-group:/aws/lambda/mcp_suspend_subcloud:*"
+            ]
+        }
+    ]
+}

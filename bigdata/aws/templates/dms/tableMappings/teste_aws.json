@@ -1,0 +1,17 @@
+{
+  "rules":[
+    {
+      "rule-type":"selection",
+      "rule-id":"044835171",
+      "rule-name":"044835171",
+      "object-locator":{
+        "schema-name":"TESTE_AWS",
+        "table-name":"TAB_TESTE_AWS"
+      },
+      "rule-action":"include",
+      "filters":[
+
+      ]
+    }
+  ]
+}

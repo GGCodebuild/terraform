@@ -1,0 +1,32 @@
+###
+# File: Chart.yaml
+# File Created: Friday, 15th July 2022 12:46:33 pm
+# -----
+# Last Modified: Friday July 15th 2022 12:59:14 pm
+# Modified By: Jorge Agüero Zamora <jorge.aguerozamora@windriver.com>
+# -----
+# Copyright (c) 2022 Wind River Systems, Inc.
+# 
+# The right to copy, distribute, modify, or otherwise make use of this software may be licensed
+# only pursuant to the terms of an applicable Wind River license agreement.
+# -----
+###
+apiVersion: v1
+name: cert-manager
+# The version and appVersion fields are set automatically by the release tool
+version: v1.8.2
+appVersion: v1.8.2
+description: A Helm chart for cert-manager
+home: https://github.com/cert-manager/cert-manager
+icon: https://raw.githubusercontent.com/cert-manager/cert-manager/master/logo/logo.png
+keywords:
+  - cert-manager
+  - kube-lego
+  - letsencrypt
+  - tls
+sources:
+  - https://github.com/cert-manager/cert-manager
+maintainers:
+  - name: cert-manager-maintainers
+    email: cert-manager-maintainers@googlegroups.com
+

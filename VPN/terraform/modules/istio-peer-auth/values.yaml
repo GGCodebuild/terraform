@@ -1,0 +1,11 @@
+# Default values for istio-peer-auth.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+istio:
+  enabled: false
+  mode: "PERMISSIVE"
+  name: "default"
+  match: false
+  matchLabels:
+    test: "test"

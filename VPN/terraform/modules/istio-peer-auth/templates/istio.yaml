@@ -1,0 +1,18 @@
+{{- if .Values.istio.enabled }}
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: {{ .Release.Name}}-{{ .Values.istio.name }}-peerauthentication
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- if .Values.istio.match }}
+  selector:
+    matchLabels:
+    {{- range  $key, $val := .Values.istio.matchLabels}}
+      {{ $key }}: {{ $val }}
+    {{- end }}
+  {{- end }}
+  mtls:
+    mode: {{ .Values.istio.mode }}
+---
+{{- end }}

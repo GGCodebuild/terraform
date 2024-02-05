@@ -1,0 +1,546 @@
+{
+  "widgets": [
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_refined}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_refined}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_refined}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_refined}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_landing_zone}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_landing_zone}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_landing_zone}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_landing_zone}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_raw}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_raw}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_raw}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_raw}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_trusted}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_trusted}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 18,
+      "y": 12,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_trusted}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_trusted}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_garbabe}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_garbabe}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 24,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_garbabe}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_garbabe}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 30,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_stage}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_stage}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 30,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_stage}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_stage}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 36,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_output}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_output}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 36,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_output}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_output}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 40,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_log}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_log}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 40,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_log}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_log}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 46,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_dag}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_dag}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 46,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_dag}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_dag}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 52,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Armazenamento S3 ${bucket_artifactory}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "BucketSizeBytes",
+            "StorageType",
+            "StandardStorage",
+            "BucketName",
+            "${bucket_artifactory}"
+          ]
+        ]
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 52,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "Quantidade objetos S3 ${bucket_artifactory}",
+        "view": "timeSeries",
+        "stacked": true,
+        "liveData": true,
+        "region": "sa-east-1",
+        "period": 2592000,
+        "stat": "Sum",
+        "metrics": [
+          [
+            "AWS/S3",
+            "NumberOfObjects",
+            "StorageType",
+            "AllStorageTypes",
+            "BucketName",
+            "${bucket_artifactory}"
+          ]
+        ]
+      }
+    }
+
+
+  ]
+}

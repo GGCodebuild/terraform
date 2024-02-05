@@ -1,0 +1,124 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": true,
+        "metrics": [
+          [
+            "AmazonMWAA",
+            "QueuedTasks",
+            "Function",
+            "Executor",
+            "Environment",
+            "${environment_airflow}"
+          ]
+        ],
+        "region": "${region}",
+        "title": "QueuedTasks ${environment_airflow}",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": true,
+        "metrics": [
+          [
+            "AmazonMWAA",
+            "RunningTasks",
+            "Function",
+            "Executor",
+            "Environment",
+            "${environment_airflow}"
+          ]
+        ],
+        "region": "${region}",
+        "title": "RunningTasks ${environment_airflow}",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 6,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": true,
+        "metrics": [
+          [
+            "AmazonMWAA",
+            "SchedulerHeartbeat",
+            "Function",
+            "Scheduler",
+            "Environment",
+            "${environment_airflow}"
+          ]
+        ],
+        "region": "${region}",
+        "title": "SchedulerHeartbeat ${environment_airflow}",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 0,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": true,
+        "metrics": [
+          [
+            "AmazonMWAA",
+            "TasksPending",
+            "Function",
+            "Scheduler",
+            "Environment",
+            "${environment_airflow}"
+          ]
+        ],
+        "region": "${region}",
+        "title": "TasksPending ${environment_airflow}",
+        "period": 300
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 12,
+      "width": 24,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": true,
+        "region": "${region}",
+        "metrics": [
+          [
+            "AmazonMWAA",
+            "TotalParseTime",
+            "Function",
+            "DAG Processing",
+            "Environment",
+            "${environment_airflow}"
+          ]
+        ],
+        "title": "TotalParseTime  ${environment_airflow}",
+        "period": 300
+      }
+    }
+  ]
+}
